@@ -92,7 +92,7 @@ Overall, delay rates and on time performance remain relatively stable throughout
 This deterioration may be influenced by increased passenger volumes during the holiday season. December brings a substantial influx of visitors and commuters traveling to major seasonal attractions and events, such as the Rockefeller Center Christmas Tree, Radio City Music Hall, and other holiday destinations. The resulting increase in ridership and congestion may place additional pressure on the system, contributing to more frequent delays and reduced reliability.
 
 ### Incident Analysis
-The incident analysis evaluates reporting categories based on their frequency and the average delay they cause. The three most frequent categories are Police & Medical (24.7%), Operating Conditions (23.6%), and Infrastructure & Equipment (20.4%).
+The incident analysis evaluates reporting categories based on their frequency and the average delay they cause. The three high frequency and high delay categories are Police & Medical (24.7%), Operating Conditions (23.6%), and Infrastructure & Equipment (20.4%).
 
 These high frequencies are partly explained by the age and complexity of New York City’s subway system. The first subway opened in 1904, and the network has since expanded to 472 stations, 28 routes, and about 665 miles of track. Much of the system still relies on aging infrastructure, including signal equipment that can be 50–80 years old.
 
