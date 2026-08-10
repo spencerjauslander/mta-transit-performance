@@ -101,3 +101,9 @@ The Infrastructure & Equipment and Operating Conditions figures are partly expla
 The Police & Medical category is harder to attribute to infrastructure age and more likely reflects the sheer volume and density of daily ridership. With millions of riders passing through the system each day, medical emergencies, security incidents, and platform/train congestion issues are statistically more likely to occur simply as a function of scale. A more granular breakdown of this category (e.g., medical vs. security vs. fare-related incidents) would help pinpoint which sub-causes are driving the 24.7% figure, and is worth pursuing if that data is available.
 
 Overall, the data shows a subway system constantly balancing aging infrastructure with the demands of a growing, heavily used city. The MTA must continue repairing and modernizing the system while keeping it running for millions of daily riders.
+
+<a name="DB"></a>
+## Interactive Dashboard
+
+<a name="conclu"></a>
+## Conclusion
