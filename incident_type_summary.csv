@@ -1,0 +1,7 @@
+reporting_category,incidents,delays,Average Delay Per Incident,color
+Police & Medical,386913,1936676,5.01,#d62728
+Operating Conditions,369168,1321775,3.58,#ffb000
+Infrastructure & Equipment,319114,2676207,8.39,#d62728
+Planned ROW Work,244464,1938763,7.93,#9467bd
+Crew Availability,222934,1391009,6.24,#7f7f7f
+External Factors,24879,226240,9.09,#7f7f7f
