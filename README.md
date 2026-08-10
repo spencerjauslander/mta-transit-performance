@@ -74,15 +74,17 @@ Looking at the incident category breakdown for the B line, the majority of incid
 
 This pattern becomes even more apparent when looking at the F and C lines, which also share tracks with the B. Both lines have similarly high delay rates and low OTP, suggesting that shared-track operations and interlining may be contributing significantly to their poor reliability.
 
+The 2 train stands out as an exception, running on a different track from the B, C, and F track. Interlining with those specific lines isn't a plausible explanation for its poor performance. Its appearance in the bottom five points towards its own unique problems (its own interlining partners, express/local conflicts, or corridor-specific infrastructure issues). The N sits in a similar position which would require its own investigation.
+
 We will take a closer look at reporting categories later, analyzing the effects in relation to delays.
 
 ### Year Analysis
 The year analysis looks over the last five years and checks which year performed the best.
 
 One of the more obvious observations, 2020 was the best year in terms of delay rate and OTP.
-This is most likely due to COVID: less people taking the subways = less stress on the subway system. 
-Note that delay rate ignores the volume of schedule trips so COVID having less overall trips is not a factor.
-This effect can be observed with 2021, an observable correlation of COVID reduced restrictions leading to more delays and lower OTP. Ultimately, resulting in the worst year of 2022 where delays reaches a peak and OTP reaches an all time low.
+This is most likely due to COVID: fewer riders meant lower congestion and less strain on trains, stations, and crews. 
+It's worth noting that delay rate ignores the volume of scheduled trips, so a drop in the number of trains running wouldn't, by itself, explain the improvement. Rather, the likely cause is the reduction in ridership and congestion easing the operation pressure that typically causes delays (crowding-related dwell time, medical incidents).
+This effect becomes clearer when looking at 2021, where an easing of COVID restrictions correlates with rising delays and falling OTP as ridership rebounded. The trend continues into 2022, the worst year in the dataset, where delays peak and OTP hits an all time low, consistent with ridership and system stress returning to (or exceeding) pre-pandemic levels.
 
 ### Month Analysis
 The month analysis evaluates subway reliability across the year to identify periods when riders are most likely to experience delays.
@@ -92,12 +94,10 @@ Overall, delay rates and on time performance remain relatively stable throughout
 This deterioration may be influenced by increased passenger volumes during the holiday season. December brings a substantial influx of visitors and commuters traveling to major seasonal attractions and events, such as the Rockefeller Center Christmas Tree, Radio City Music Hall, and other holiday destinations. The resulting increase in ridership and congestion may place additional pressure on the system, contributing to more frequent delays and reduced reliability.
 
 ### Incident Analysis
-The incident analysis evaluates reporting categories based on their frequency and the average delay they cause. The three high frequency and high delay categories are Police & Medical (24.7%), Operating Conditions (23.6%), and Infrastructure & Equipment (20.4%).
+The incident analysis evaluates reporting categories based on their frequency and the average delay they cause. The three high-frequency, high-delay categories are Police & Medical (24.7%), Operating Conditions (23.6%), and Infrastructure & Equipment (20.4%).
 
-These high frequencies are partly explained by the age and complexity of New York City’s subway system. The first subway opened in 1904, and the network has since expanded to 472 stations, 28 routes, and about 665 miles of track. Much of the system still relies on aging infrastructure, including signal equipment that can be 50–80 years old.
+The Infrastructure & Equipment and Operating Conditions figures are partly explained by the age and complexity of New York City's subway system. The first subway opened in 1904, and the network has since expanded to 472 stations, 28 routes, and about 665 miles of track. Much of the system still relies on aging infrastructure, including signal equipment that can be 50–80 years old. At the same time, the subway serves millions of passengers each day, putting constant pressure on trains, tracks, stations, and employees. With multiple lines sharing tracks, a single incident can also create delays across the wider system.
 
-At the same time, the subway serves millions of passengers each day, putting constant pressure on trains, tracks, stations, and employees. With multiple lines sharing tracks, a single incident can also create delays across the wider system.
-
-All types of people use the subways: people going to work, tourists, homeless people, addicts. Putting everyone into a rush hour scenario creates friction, especially for those who don't care about causing altercations. 
+The Police & Medical category is harder to attribute to infrastructure age and more likely reflects the sheer volume and density of daily ridership. With millions of riders passing through the system each day, medical emergencies, security incidents, and platform/train congestion issues are statistically more likely to occur simply as a function of scale. A more granular breakdown of this category (e.g., medical vs. security vs. fare-related incidents) would help pinpoint which sub-causes are driving the 24.7% figure, and is worth pursuing if that data is available.
 
 Overall, the data shows a subway system constantly balancing aging infrastructure with the demands of a growing, heavily used city. The MTA must continue repairing and modernizing the system while keeping it running for millions of daily riders.
