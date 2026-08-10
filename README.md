@@ -62,7 +62,7 @@ Data cleaning was completed using Python for all three datasets:
 
 ## 2b Analysis 
 
-### Line Analysis - Which lines are the best/worst in terms of delay rate and OTP
+### Line Analysis
 The line analysis takes a closer look at which lines are consistently unreliable. 
 In addition to on-time performance (OTP), we examine delay rate—for every scheduled trip, how many experienced a delay? Both metrics help assess reliability without being influenced by the overall volume of activity on each line.
 
