@@ -1,12 +1,10 @@
 # mta-transit-performance
 
 <summary>Contents</summary>
-  <ol>
     <li><a href="#desc">Description</a></li>
     <li><a href="#dca">Data Cleaning & Analysis</a></li>
     <li><a href="#DB">Interactive Dashboard</a></li>
     <li><a href="#conclu">Conclusion</a></li>
-  </ol>
 
 <a name="desc"></a>
 ## Description
@@ -38,9 +36,8 @@ Notes
 <a name="dca"></a>
 ## Data Cleaning & Analysis
 
-## 2a Data Cleaning
+### Data Cleaning
 Data cleaning was completed using Python for all three datasets:
-
 ### Delays 
 * 18592 rows
 * 6 columns: Month (yyy-mm-dd), Division, Line, Day Type, Reporting Category, Delays
@@ -59,8 +56,8 @@ Data cleaning was completed using Python for all three datasets:
 * Merged all of the dataframes into one
 * Removed the smaller, speciality lines from the list
 * Formatted data columns to be more readable
-
-## 2b Analysis 
+___
+### Analysis 
 
 ### Line Analysis
 The line analysis takes a closer look at which lines are consistently unreliable. 
@@ -94,16 +91,48 @@ Overall, delay rates and on-time performance remain relatively stable throughout
 Because on-time performance doesn't swing meaningfully month to month, delay rate is the more useful signal for distinguishing weaker-performing months. February's elevated rate may reflect winter-related operating challenges, such as cold-weather equipment strain, snow and ice conditions, and reduced maintenance windows. December's continued position near the top of the list may still be influenced by increased passenger volumes during the holiday season, as the city sees a substantial influx of visitors and commuters traveling to major seasonal attractions and events, such as the Rockefeller Center Christmas Tree, Radio City Music Hall, and other holiday destinations. The resulting increase in ridership and congestion may place additional pressure on the system, contributing to more frequent delays.
 
 ### Incident Analysis
-The incident analysis evaluates reporting categories based on their frequency and the average delay they cause. The three high-frequency, high-delay categories are Police & Medical (24.7%), Operating Conditions (23.6%), and Infrastructure & Equipment (20.4%).
+| Category | Frequency | Delays per Incident | Profile |
+|---|---|---|---|
+| Police & Medical | 24.7% | 5.01 | High frequency, low delay |
+| Operating Conditions | 23.6% | 3.58 | High frequency, low delay |
+| Infrastructure & Equipment | 20.4% | 8.39 | High frequency, high delay |
+| Planned ROW Work | 15.6% | 7.93 | Low frequency, high delay |
+| Crew Availability | 14.2% | 6.24 | Low frequency, low delay |
+| External Factors | 1.6% | 9.09 | Low frequency, high delay |
 
-The Infrastructure & Equipment and Operating Conditions figures are partly explained by the age and complexity of New York City's subway system. The first subway opened in 1904, and the network has since expanded to 472 stations, 28 routes, and about 665 miles of track. Much of the system still relies on aging infrastructure, including signal equipment that can be 50–80 years old. At the same time, the subway serves millions of passengers each day, putting constant pressure on trains, tracks, stations, and employees. With multiple lines sharing tracks, a single incident can also create delays across the wider system.
+### Infrastructure & Equipment — High Frequency, High Delay
 
-The Police & Medical category is harder to attribute to infrastructure age and more likely reflects the sheer volume and density of daily ridership. With millions of riders passing through the system each day, medical emergencies, security incidents, and platform/train congestion issues are statistically more likely to occur simply as a function of scale. A more granular breakdown of this category (e.g., medical vs. security vs. fare-related incidents) would help pinpoint which sub-causes are driving the 24.7% figure, and is worth pursuing if that data is available.
+The only category that is both common and severe. This is partly explained by the age and complexity of the NYC subway system:
 
-Overall, the data shows a subway system constantly balancing aging infrastructure with the demands of a growing, heavily used city. The MTA must continue repairing and modernizing the system while keeping it running for millions of daily riders.
+- First subway line opened in 1904
+- Network has grown to 472 stations, 28 routes, and ~665 miles of track
+- Signal equipment in parts of the system can be 50–80 years old
+- With multiple lines sharing tracks, a single equipment failure can cascade into delays across the wider system
+
+### Police & Medical and Operating Conditions — High Frequency, Low Delay
+
+These are the two most common incident categories, but each is resolved relatively quickly:
+
+- **Police & Medical** (#1 by frequency, 24.7%) is more likely a function of ridership volume and density than infrastructure age — with millions of daily riders, medical emergencies, security incidents, and congestion issues are statistically more likely simply due to scale.
+- **Operating Conditions** (#2 by frequency, 23.6%) likely reflects routine scheduling/service adjustments that are typically absorbed without major cascading disruption.
+
+### Planned ROW Work and External Factors — Low Frequency, High Delay
+
+These are the categories to watch from a severity standpoint:
+
+- **External Factors** is the rarest category (1.6%) but causes the highest average delay per incident (9.09) of any category. A disproportionate impact worth investigating further.
+- **Planned ROW Work** (15.6%) also produces high delays per incident (7.93), consistent with the scheduled/major nature of this work.
+
+### Crew Availability — Low Frequency, Low Delay
+
+The least disruptive category overall (14.2% frequency, 6.24 delays per incident).
+
+
 
 <a name="DB"></a>
 ## Interactive Dashboard
 
 <a name="conclu"></a>
 ## Conclusion
+
+- Frequency and delay severity don't always move together. Some of the most common incident types (Police & Medical, Operating Conditions) are comparatively quick to resolve, while rarer categories (External Factors, Planned ROW Work) disproportionately drive delay time.
