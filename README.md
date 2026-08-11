@@ -1,13 +1,16 @@
 # mta-transit-performance
 
-Contents
+## Table of Contents
+
+<ul>
     <li><a href="#desc">Description</a></li>
     <li><a href="#dca">Data Cleaning & Analysis</a></li>
     <li><a href="#DB">Interactive Dashboard</a></li>
     <li><a href="#conclu">Conclusion</a></li>
+</ul>
 
 <a name="desc"></a>
-## Description
+### Description
 
 Analyzing MTA subway line performance, delays, incidents, and on-time performance across NYC from 2020–2025. 
 * [Subway Delays](https://data.ny.gov/Transportation/MTA-Subway-Trains-Delayed-Beginning-2020/9zbp-wz3y)  
@@ -34,32 +37,32 @@ Notes
 * External Factors – Delays from causes outside MTA's direct control, such as inclement weather
 
 <a name="dca"></a>
-## Data Cleaning & Analysis
+### Data Cleaning & Analysis
 
-### Data Cleaning
+#### Data Cleaning
 Data cleaning was completed using Python for all three datasets:
-### Delays 
+#### Delays 
 * 18592 rows
 * 6 columns: Month (yyy-mm-dd), Division, Line, Day Type, Reporting Category, Delays
 * Split the Month column into name month & full year
 
-### Incidents
+#### Incidents
 * 24332 rows
 * 6 columns: Month (yyy-mm-dd), Division, Line, Day Type, Reporting Category, Incidents
 * Split the Month column into name month & full year
 
-### On Time Performance
+#### On Time Performance
 * 5092 rows
 * 7 columns: Month (yyy-mm-dd), Division, Line, Day Type, number of on time trips, number of scheduled trips, % of on time performance
 
-### Created a combined Dataframe between all datasets
+#### Created a combined Dataframe between all datasets
 * Merged all of the dataframes into one
 * Removed the smaller, speciality lines from the list
 * Formatted data columns to be more readable
 ___
-### Analysis 
+#### Analysis 
 
-### Line Analysis
+#### Line Analysis
 The line analysis takes a closer look at which lines are consistently unreliable. 
 In addition to on-time performance (OTP), we examine delay rate—for every scheduled trip, how many experienced a delay? Both metrics help assess reliability without being influenced by the overall volume of activity on each line.
 
@@ -75,7 +78,7 @@ The 2 train stands out as an exception, running on a different track from the B,
 
 We will take a closer look at reporting categories later, analyzing the effects in relation to delays.
 
-### Year Analysis
+#### Year Analysis
 The year analysis looks over the last five years and checks which year performed the best.
 
 One of the more obvious observations, 2020 was the best year in terms of delay rate and OTP.
@@ -83,14 +86,14 @@ This is most likely due to COVID: fewer riders meant lower congestion and less s
 It's worth noting that delay rate ignores the volume of scheduled trips, so a drop in the number of trains running wouldn't, by itself, explain the improvement. Rather, the likely cause is the reduction in ridership and congestion easing the operation pressure that typically causes delays (crowding-related dwell time, medical incidents).
 This effect becomes clearer when looking at 2021, where an easing of COVID restrictions correlates with rising delays and falling OTP as ridership rebounded. The trend continues into 2022, the worst year in the dataset, where delays peak and OTP hits an all time low, consistent with ridership and system stress returning to (or exceeding) pre-pandemic levels.
 
-### Month Analysis
+#### Month Analysis
 The month analysis evaluates subway reliability across the year to identify periods when riders are most likely to experience delays.
 
 Overall, delay rates and on-time performance remain relatively stable throughout the year, suggesting that subway reliability does not vary dramatically by season. On-time performance stays within a narrow band of 79–82% across all twelve months, and delay rates similarly cluster tightly, ranging from 2.93% in May to 3.36% in February. Within this stability, February and December stand out as the two least reliable months, with delay rates of 3.36% and 3.33% respectively, while March and May are the most reliable, with rates of 3.07% and 2.93%.
 
 Because on-time performance doesn't swing meaningfully month to month, delay rate is the more useful signal for distinguishing weaker-performing months. February's elevated rate may reflect winter-related operating challenges, such as cold-weather equipment strain, snow and ice conditions, and reduced maintenance windows. December's continued position near the top of the list may still be influenced by increased passenger volumes during the holiday season, as the city sees a substantial influx of visitors and commuters traveling to major seasonal attractions and events, such as the Rockefeller Center Christmas Tree, Radio City Music Hall, and other holiday destinations. The resulting increase in ridership and congestion may place additional pressure on the system, contributing to more frequent delays.
 
-### Incident Analysis
+#### Incident Analysis
 | Category | Frequency | Delays per Incident | Profile |
 |---|---|---|---|
 | Police & Medical | 24.7% | 5.01 | High frequency, low delay |
@@ -100,7 +103,7 @@ Because on-time performance doesn't swing meaningfully month to month, delay rat
 | Crew Availability | 14.2% | 6.24 | Low frequency, low delay |
 | External Factors | 1.6% | 9.09 | Low frequency, high delay |
 
-### Infrastructure & Equipment — High Frequency, High Delay
+#### Infrastructure & Equipment — High Frequency, High Delay
 
 The only category that is both common and severe. This is partly explained by the age and complexity of the NYC subway system:
 
@@ -109,30 +112,30 @@ The only category that is both common and severe. This is partly explained by th
 - Signal equipment in parts of the system can be 50–80 years old
 - With multiple lines sharing tracks, a single equipment failure can cascade into delays across the wider system
 
-### Police & Medical and Operating Conditions — High Frequency, Low Delay
+#### Police & Medical and Operating Conditions — High Frequency, Low Delay
 
 These are the two most common incident categories, but each is resolved relatively quickly:
 
 - **Police & Medical** (#1 by frequency, 24.7%) is more likely a function of ridership volume and density than infrastructure age — with millions of daily riders, medical emergencies, security incidents, and congestion issues are statistically more likely simply due to scale.
 - **Operating Conditions** (#2 by frequency, 23.6%) likely reflects routine scheduling/service adjustments that are typically absorbed without major cascading disruption.
 
-### Planned ROW Work and External Factors — Low Frequency, High Delay
+#### Planned ROW Work and External Factors — Low Frequency, High Delay
 
 These are the categories to watch from a severity standpoint:
 
 - **External Factors** is the rarest category (1.6%) but causes the highest average delay per incident (9.09) of any category. A disproportionate impact worth investigating further.
 - **Planned ROW Work** (15.6%) also produces high delays per incident (7.93), consistent with the scheduled/major nature of this work.
 
-### Crew Availability — Low Frequency, Low Delay
+#### Crew Availability — Low Frequency, Low Delay
 
 The least disruptive category overall (14.2% frequency, 6.24 delays per incident).
 
 
 
 <a name="DB"></a>
-## Interactive Dashboard
+### Interactive Dashboard
 
 <a name="conclu"></a>
-## Conclusion
+### Conclusion
 
 - Frequency and delay severity don't always move together. Some of the most common incident types (Police & Medical, Operating Conditions) are comparatively quick to resolve, while rarer categories (External Factors, Planned ROW Work) disproportionately drive delay time.
