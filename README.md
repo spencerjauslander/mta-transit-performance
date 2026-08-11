@@ -5,7 +5,7 @@
 <ul>
     <li><a href="#desc">Description</a></li>
     <li><a href="#dca">Data Cleaning & Analysis</a></li>
-    <li><a href="#DB">Interactive Dashboard</a></li>
+    <li><a href="#DB">Power BI Dashboard</a></li>
     <li><a href="#conclu">Conclusion</a></li>
 </ul>
 
@@ -103,7 +103,7 @@ Because on-time performance doesn't swing meaningfully month to month, delay rat
 | Crew Availability | 14.2% | 6.24 | Low frequency, low delay |
 | External Factors | 1.6% | 9.09 | Low frequency, high delay |
 
-#### Infrastructure & Equipment — High Frequency, High Delay
+#### Infrastructure & Equipment - High Frequency, High Delay
 
 The only category that is both common and severe. This is partly explained by the age and complexity of the NYC subway system:
 
@@ -112,28 +112,28 @@ The only category that is both common and severe. This is partly explained by th
 - Signal equipment in parts of the system can be 50–80 years old
 - With multiple lines sharing tracks, a single equipment failure can cascade into delays across the wider system
 
-#### Police & Medical and Operating Conditions — High Frequency, Low Delay
+#### Police & Medical and Operating Conditions - High Frequency, Low Delay
 
 These are the two most common incident categories, but each is resolved relatively quickly:
 
 - **Police & Medical** (#1 by frequency, 24.7%) is more likely a function of ridership volume and density than infrastructure age — with millions of daily riders, medical emergencies, security incidents, and congestion issues are statistically more likely simply due to scale.
 - **Operating Conditions** (#2 by frequency, 23.6%) likely reflects routine scheduling/service adjustments that are typically absorbed without major cascading disruption.
 
-#### Planned ROW Work and External Factors — Low Frequency, High Delay
+#### Planned ROW Work and External Factors - Low Frequency, High Delay
 
 These are the categories to watch from a severity standpoint:
 
 - **External Factors** is the rarest category (1.6%) but causes the highest average delay per incident (9.09) of any category. A disproportionate impact worth investigating further.
 - **Planned ROW Work** (15.6%) also produces high delays per incident (7.93), consistent with the scheduled/major nature of this work.
 
-#### Crew Availability — Low Frequency, Low Delay
+#### Crew Availability - Low Frequency, Low Delay
 
 The least disruptive category overall (14.2% frequency, 6.24 delays per incident).
 
 
 
 <a name="DB"></a>
-### Interactive Dashboard
+### Power BI Dashboard
 
 <a name="conclu"></a>
 ### Conclusion
