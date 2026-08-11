@@ -17,11 +17,12 @@ Analyzing MTA subway line performance, delays, incidents, and on-time performanc
 * [Subway Incidents Causing Delays](https://data.ny.gov/Transportation/MTA-Subway-Delay-Causing-Incidents-Beginning-2020/g937-7k7c)
 * [On-Time-Performance](https://data.ny.gov/Transportation/MTA-Subway-Terminal-On-Time-Performance-Beginning-/f6rf-2a3t)
 
-Initial questions/insights
-* Which line is the worst, based on delay rate and OTP? Why is a particular line the worse? What is the potential correlation between delay rates and OTP?
-* Which year was the best/worst, based on delays? Potential reasons why some years are better/worse?
-* Which month is, on average, the worst, based on delays? Potential reasons why months are worse?
-* Which incidents happen the most and which cause the most delays?
+Research questions:
+
+* Which line performs worst by delay rate and on-time performance (OTP), and what factors contribute to this?
+* Which year performed best and worst by delay rate, and what factors are associated with this?
+* Which months are least reliable on average, and what factors are associated with this?
+* Which incident categories occur most frequently, and which cause the greatest delays?
 
 Notes
 
@@ -63,39 +64,33 @@ ___
 #### Analysis 
 
 #### Line Analysis
-The line analysis takes a closer look at which lines are consistently unreliable. 
-In addition to on-time performance (OTP), we examine delay rate—for every scheduled trip, how many experienced a delay? Both metrics help assess reliability without being influenced by the overall volume of activity on each line.
+This analysis identifies which lines are least reliable, using both on-time performance (OTP) and delay rate (delays per scheduled trip). Delay rate controls for service volume, allowing comparison independent of how frequently a line runs.
 
-According to the twin bar/line graph, the B, F, C, 2, and N are the five worst-performing lines. Of these, the B is arguably the least reliable overall, with both the highest delay rate and lowest OTP.
+The B, F, C, 2, and N lines rank as the five worst performers. The B line records both the highest delay rate and the lowest OTP, despite having the fewest scheduled trips among the five.
 
-Why is the B train so unreliable despite having the fewest trips among the top five?
+A review of incident categories for the B line shows that the majority of incidents fall under Operating Conditions. This is consistent with interlining: the B shares track infrastructure with the D, F, Q, M, A, and C lines, which can require the B to yield right-of-way and incur additional delay.
 
-Looking at the incident category breakdown for the B line, the majority of incidents are attributed to Operating Conditions. One likely factor is interlining, where the B shares tracks with multiple other lines, including the D, F, Q, M, A, and C. When trains from these other lines need to pass through the same track infrastructure, the B may have to wait, creating additional delays.
+The F and C lines, which also share track with the B, show similarly elevated delay rates and depressed OTP, reinforcing the association between shared-track operation and reduced reliability.
 
-This pattern becomes even more apparent when looking at the F and C lines, which also share tracks with the B. Both lines have similarly high delay rates and low OTP, suggesting that shared-track operations and interlining may be contributing significantly to their poor reliability.
-
-The 2 train stands out as an exception, running on a different track from the B, C, and F track. Interlining with those specific lines isn't a plausible explanation for its poor performance. Its appearance in the bottom five points towards its own unique problems (its own interlining partners, express/local conflicts, or corridor-specific infrastructure issues). The N sits in a similar position which would require its own investigation.
-
-We will take a closer look at reporting categories later, analyzing the effects in relation to delays.
+The 2 line does not share track with the B, C, or F lines, so interlining with this group does not explain its ranking. Its presence among the bottom five suggests line-specific factors, such as its own interlining partners, express/local conflicts, or corridor-specific infrastructure, that would require separate investigation. The N line's ranking likely reflects a similar set of independent causes.
 
 ![Worst Lines by Delay Rate](https://raw.githubusercontent.com/spencerjauslander/mta-transit-performance/main/MTA%20Project%20Images/Worst%20Lines%20by%20Delay%20Rate.png)
 
 #### Year Analysis
-The year analysis looks over the last five years and checks which year performed the best.
+This analysis evaluates system-wide reliability across the five-year period.
 
-One of the more obvious observations, 2020 was the best year in terms of delay rate and OTP.
-This is most likely due to COVID: fewer riders meant lower congestion and less strain on trains, stations, and crews. 
-It's worth noting that delay rate ignores the volume of scheduled trips, so a drop in the number of trains running wouldn't, by itself, explain the improvement. Rather, the likely cause is the reduction in ridership and congestion easing the operation pressure that typically causes delays (crowding-related dwell time, medical incidents).
-This effect becomes clearer when looking at 2021, where an easing of COVID restrictions correlates with rising delays and falling OTP as ridership rebounded. The trend continues into 2022, the worst year in the dataset, where delays peak and OTP hits an all time low, consistent with ridership and system stress returning to (or exceeding) pre-pandemic levels.
+2020 recorded the strongest performance on both delay rate and OTP. This is consistent with reduced ridership during the COVID-19 pandemic, which lowered congestion and operational strain on trains, stations, and crews. Delay rate is independent of scheduled trip volume, so a reduction in service alone would not account for the improvement; the more plausible explanation is reduced congestion-related pressure (e.g., crowding-related dwell time, medical incidents).
+
+This relationship is corroborated by 2021, where the easing of pandemic restrictions coincides with rising delays and falling OTP as ridership recovered. The trend continues into 2022, the worst year in the dataset, in which delays peak and OTP reaches its lowest point, consistent with ridership and system load returning to or exceeding pre-pandemic levels.
 
 ![Delay Rate per Year](https://github.com/spencerjauslander/mta-transit-performance/blob/main/MTA%20Project%20Images/Delay%20Rate%20per%20Year.png)
 
 #### Month Analysis
-The month analysis evaluates subway reliability across the year to identify periods when riders are most likely to experience delays.
+This analysis evaluates reliability by month to identify seasonal patterns.
 
-Overall, delay rates and on-time performance remain relatively stable throughout the year, suggesting that subway reliability does not vary dramatically by season. On-time performance stays within a narrow band of 79–82% across all twelve months, and delay rates similarly cluster tightly, ranging from 2.93% in May to 3.36% in February. Within this stability, February and December stand out as the two least reliable months, with delay rates of 3.36% and 3.33% respectively, while March and May are the most reliable, with rates of 3.07% and 2.93%.
+Delay rate and OTP remain relatively stable across the calendar year, indicating limited seasonal variation. OTP stays within a narrow range of 79 – 82% across all twelve months. Delay rate ranges from 2.93% in May to 3.36% in February. February and December are the two least reliable months, with delay rates of 3.36% and 3.33% respectively. March and May are the most reliable, at 3.07% and 2.93%.
 
-Because on-time performance doesn't swing meaningfully month to month, delay rate is the more useful signal for distinguishing weaker-performing months. February's elevated rate may reflect winter-related operating challenges, such as cold-weather equipment strain, snow and ice conditions, and reduced maintenance windows. December's continued position near the top of the list may still be influenced by increased passenger volumes during the holiday season, as the city sees a substantial influx of visitors and commuters traveling to major seasonal attractions and events, such as the Rockefeller Center Christmas Tree, Radio City Music Hall, and other holiday destinations. The resulting increase in ridership and congestion may place additional pressure on the system, contributing to more frequent delays.
+Because OTP does not vary meaningfully by month, delay rate is the more informative metric for identifying weaker-performing periods. February's elevated delay rate may be associated with winter operating conditions, including cold-weather equipment strain, snow and ice, and reduced maintenance windows. December's elevated rate may be associated with increased holiday-season ridership, as seasonal visitor and commuter volume rises around major attractions such as the Rockefeller Center Christmas Tree and Radio City Music Hall, adding congestion to the system.
 
 ![Delay Rate per Month](https://github.com/spencerjauslander/mta-transit-performance/blob/main/MTA%20Project%20Images/Delay%20Rate%20per%20Month.png)
 
@@ -145,9 +140,9 @@ The least disruptive category overall (14.2% frequency, 6.24 delays per incident
 This dashboard is a transportation reliability and root-cause monitoring tool, designed to see the historical performance of the MTA.
 
 Assists in answering three questions: 
-* "How well have the MTA performed in the last five years?"
+* "How has the MTA performed over the last five years?"
 * "What has historically caused the most problems?"
-* "Have there been improvements with certain lines/incidents or is it the same throughout?"
+* "Have specific lines or incident categories improved, or has performance remained consistent"
 
 All from a single interactive view.
 
@@ -174,4 +169,4 @@ Low frequency, high delay - External Factors, Planned ROW Work: rare but disprop
 Low frequency, low delay - Crew Availability: the least disruptive category overall.
 
 **Overall**<br>
-Two structural forces recur across every layer of the analysis: shared/aging infrastructure (interlining, old signal equipment) and ridership-driven congestion (COVID dip and rebound, holiday season, medical/security incident volume). Together they explain most of the variation in reliability across lines, years, and months; pointing to infrastructure investment and congestion management as the two levers most likely to move the needle.
+Two structural factors recur throughout this analysis: shared and aging infrastructure (interlining, legacy signal equipment) and ridership-driven congestion (pandemic-era decline and rebound, holiday season, medical and security incident volume). Together, these factors account for most of the observed variation in reliability across lines, years, and months, and point to infrastructure investment and congestion management as the two levers most likely to improve system performance.
