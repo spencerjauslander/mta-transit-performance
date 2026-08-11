@@ -2,12 +2,12 @@
 
 ## Table of Contents
 
-<ul>
+<ol>
     <li><a href="#desc">Description</a></li>
     <li><a href="#dca">Data Cleaning & Analysis</a></li>
     <li><a href="#DB">Power BI Dashboard</a></li>
     <li><a href="#conclu">Conclusion</a></li>
-</ul>
+</ol>
 
 <a name="desc"></a>
 ### Description
@@ -78,6 +78,8 @@ The 2 train stands out as an exception, running on a different track from the B,
 
 We will take a closer look at reporting categories later, analyzing the effects in relation to delays.
 
+![Worst Lines by Delay Rate](https://raw.githubusercontent.com/spencerjauslander/mta-transit-performance/main/MTA%20Project%20Images/Worst%20Lines%20by%20Delay%20Rate.png)
+
 #### Year Analysis
 The year analysis looks over the last five years and checks which year performed the best.
 
@@ -86,12 +88,16 @@ This is most likely due to COVID: fewer riders meant lower congestion and less s
 It's worth noting that delay rate ignores the volume of scheduled trips, so a drop in the number of trains running wouldn't, by itself, explain the improvement. Rather, the likely cause is the reduction in ridership and congestion easing the operation pressure that typically causes delays (crowding-related dwell time, medical incidents).
 This effect becomes clearer when looking at 2021, where an easing of COVID restrictions correlates with rising delays and falling OTP as ridership rebounded. The trend continues into 2022, the worst year in the dataset, where delays peak and OTP hits an all time low, consistent with ridership and system stress returning to (or exceeding) pre-pandemic levels.
 
+![Delay Rate per Year](https://github.com/spencerjauslander/mta-transit-performance/blob/main/MTA%20Project%20Images/Delay%20Rate%20per%20Year.png)
+
 #### Month Analysis
 The month analysis evaluates subway reliability across the year to identify periods when riders are most likely to experience delays.
 
 Overall, delay rates and on-time performance remain relatively stable throughout the year, suggesting that subway reliability does not vary dramatically by season. On-time performance stays within a narrow band of 79–82% across all twelve months, and delay rates similarly cluster tightly, ranging from 2.93% in May to 3.36% in February. Within this stability, February and December stand out as the two least reliable months, with delay rates of 3.36% and 3.33% respectively, while March and May are the most reliable, with rates of 3.07% and 2.93%.
 
 Because on-time performance doesn't swing meaningfully month to month, delay rate is the more useful signal for distinguishing weaker-performing months. February's elevated rate may reflect winter-related operating challenges, such as cold-weather equipment strain, snow and ice conditions, and reduced maintenance windows. December's continued position near the top of the list may still be influenced by increased passenger volumes during the holiday season, as the city sees a substantial influx of visitors and commuters traveling to major seasonal attractions and events, such as the Rockefeller Center Christmas Tree, Radio City Music Hall, and other holiday destinations. The resulting increase in ridership and congestion may place additional pressure on the system, contributing to more frequent delays.
+
+![Delay Rate per Month](https://github.com/spencerjauslander/mta-transit-performance/blob/main/MTA%20Project%20Images/Delay%20Rate%20per%20Month.png)
 
 #### Incident Analysis
 | Category | Frequency | Delays per Incident | Profile |
@@ -130,7 +136,8 @@ These are the categories to watch from a severity standpoint:
 
 The least disruptive category overall (14.2% frequency, 6.24 delays per incident).
 
-
+![Pie chart of subway incidents](https://github.com/spencerjauslander/mta-transit-performance/blob/main/MTA%20Project%20Images/Pie%20chart%20of%20subway%20incidents.png)
+![Incident frequency vs. Average Delay per incident](https://github.com/spencerjauslander/mta-transit-performance/blob/main/MTA%20Project%20Images/Incident%20frequency%20vs.%20Average%20Delay%20per%20incident.png)
 
 <a name="DB"></a>
 ### Power BI Dashboard
