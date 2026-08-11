@@ -142,7 +142,36 @@ The least disruptive category overall (14.2% frequency, 6.24 delays per incident
 <a name="DB"></a>
 ### Power BI Dashboard
 
+This dashboard is a transportation reliability and root-cause monitoring tool, designed to see the historical performance of the MTA.
+
+Assists in answering three questions: 
+* "How well have the MTA performed in the last five years?"
+* "What has historically caused the most problems?"
+* "Have there been improvements with certain lines/incidents or is it the same throughout?"
+
+All from a single interactive view.
+
+![Power BI snapshot](https://github.com/spencerjauslander/mta-transit-performance/blob/main/MTA%20Project%20Images/Power%20BI%20snapshot.png)
+
 <a name="conclu"></a>
 ### Conclusion
 
-- Frequency and delay severity don't always move together. Some of the most common incident types (Police & Medical, Operating Conditions) are comparatively quick to resolve, while rarer categories (External Factors, Planned ROW Work) disproportionately drive delay time.
+**Line reliability**<br>
+The B, F, C, 2, and N are the least reliable lines, with the B performing worst on both delay rate and OTP despite having the fewest trips among the five. The likely driver is interlining. The B shares track infrastructure with the D, F, Q, M, A, and C lines, and this shared-track congestion shows up in incident data as Operating Conditions issues. The F and C lines, which also share track with the B, show similarly poor performance, reinforcing this pattern. The 2 and N don't share track with the B/C/F group, so their poor performance likely stems from separate, corridor-specific causes that would need further investigation.
+
+**Year-over-year trends**<br>
+Reliability tracks ridership and system strain rather than any structural change: 2020 was the best year (COVID-driven low ridership reduced congestion-related pressure), 2021 worsened as restrictions eased and ridership returned, and 2022 was the worst year on record as ridership and system stress met or exceeded pre-pandemic levels. This suggests reliability is largely a function of demand/congestion, not just capacity or fleet size.
+
+**Seasonal patterns**<br>
+Reliability is fairly stable year-round. OTP barely moves (79 – 82%) and delay rate stays in a tight band (2.93 – 3.36%). February and December are the weakest months, plausibly due to winter operating conditions (cold, snow, reduced maintenance windows) and holiday-driven ridership surges, respectively. March and May are the strongest months. Because OTP is nearly flat, delay rate is the more diagnostic metric for spotting weaker months.
+
+**Incident categories**<br>
+Incidents split into four functional groups:
+
+High frequency, high delay - Infrastructure & Equipment: the most consequential category, tied to the system's age (signal equipment 50–80 years old) and the cascading effect of shared track.
+High frequency, low delay - Police & Medical, Operating Conditions: common but resolved quickly; more a function of ridership scale and routine scheduling than infrastructure.
+Low frequency, high delay - External Factors, Planned ROW Work: rare but disproportionately damaging per incident; worth deeper investigation, especially External Factors given its outsized impact relative to how rarely it occurs.
+Low frequency, low delay - Crew Availability: the least disruptive category overall.
+
+**Overall**<br>
+Two structural forces recur across every layer of the analysis: shared/aging infrastructure (interlining, old signal equipment) and ridership-driven congestion (COVID dip and rebound, holiday season, medical/security incident volume). Together they explain most of the variation in reliability across lines, years, and months; pointing to infrastructure investment and congestion management as the two levers most likely to move the needle.
