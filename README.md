@@ -1,6 +1,6 @@
 # mta-transit-performance
 
-<summary>Contents</summary>
+Contents
     <li><a href="#desc">Description</a></li>
     <li><a href="#dca">Data Cleaning & Analysis</a></li>
     <li><a href="#DB">Interactive Dashboard</a></li>
