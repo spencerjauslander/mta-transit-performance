@@ -1,0 +1,401 @@
+/* ===========================================================
+   TOKENS
+   =========================================================== */
+:root{
+  --bg:            #0A0C10;
+  --panel:         #12161C;
+  --panel-raised:  #171C23;
+  --border:        #262D37;
+  --ink:           #EEF0F3;
+  --muted:         #8B94A0;
+  --muted-dim:     #5B6472;
+  --amber:         #FFA630;
+  --amber-dim:     #7A5220;
+  --safety:        #FCCC0A;
+
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Share Tech Mono', 'SF Mono', monospace;
+
+  --radius: 3px;
+  --wrap: 1180px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+.wrap{
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a{ color: var(--amber); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+a:focus-visible, button:focus-visible, .bullet:focus-visible{
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* subtle rail motif at very top of page */
+.rail-top{
+  height: 4px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--border) 0 28px,
+    transparent 28px 40px
+  );
+}
+
+/* ===========================================================
+   MASTHEAD
+   =========================================================== */
+.masthead{
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  background: rgba(10,12,16,0.92);
+  backdrop-filter: blur(6px);
+  z-index: 20;
+}
+.masthead-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: 0.92rem;
+}
+.brand-mark{ color: var(--amber); font-size: 0.7rem; }
+.masthead-nav{ display: flex; gap: 22px; }
+.masthead-nav a{
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.masthead-nav a:hover{ color: var(--ink); text-decoration: none; }
+
+/* ===========================================================
+   HERO
+   =========================================================== */
+.hero{ padding: 64px 24px 40px; }
+.eyebrow{
+  font-family: var(--font-mono);
+  color: var(--amber);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+.hero-title{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: 0.98;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+}
+.hero-sub{
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* ===========================================================
+   BOARD (countdown-clock style KPI hero)
+   =========================================================== */
+.board-section{ padding: 8px 0 12px; }
+.board{
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 8px 20px;
+  box-shadow: inset 0 0 60px rgba(255,166,48,0.03);
+}
+.board-row{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+.board-cell{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 8px;
+  border-right: 1px solid var(--border);
+}
+.board-cell:last-child{ border-right: none; }
+.board-label{
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+.board-digits{
+  font-family: var(--font-mono);
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  color: var(--amber);
+  text-shadow: 0 0 18px rgba(255,166,48,0.35);
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+.board-digits--small{
+  font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+  color: var(--ink);
+  text-shadow: none;
+}
+.board-caption{
+  font-family: var(--font-mono);
+  color: var(--muted-dim);
+  font-size: 0.75rem;
+  margin: 10px 2px 0;
+}
+
+/* ===========================================================
+   LINE BULLET SELECTOR
+   =========================================================== */
+.selector-section{ padding: 40px 24px 8px; }
+.selector-head{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.section-label{
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--ink);
+}
+.chip{
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.chip:hover{ color: var(--ink); border-color: var(--muted); }
+.chip.is-active{ color: var(--bg); background: var(--amber); border-color: var(--amber); }
+
+.bullet-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.bullet{
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  color: #0A0C10;
+  transition: transform 0.12s ease, filter 0.12s ease, opacity 0.12s ease;
+}
+.bullet:hover{ transform: translateY(-2px); }
+.bullet.is-selected{ border-color: var(--ink); box-shadow: 0 0 0 3px rgba(255,255,255,0.08); }
+.bullet-row.has-selection .bullet:not(.is-selected){ opacity: 0.32; }
+
+/* ===========================================================
+   HAZARD DIVIDER (platform edge motif)
+   =========================================================== */
+.hazard-divider{
+  height: 8px;
+  margin: 36px 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--safety) 0 14px,
+    #16130a 14px 28px
+  );
+  opacity: 0.9;
+}
+
+/* ===========================================================
+   KPI STRIP
+   =========================================================== */
+.kpi-section{ padding: 0 24px 8px; }
+.kpi-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.kpi-card{
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 18px 16px;
+  border-left: 3px solid var(--amber);
+}
+.kpi-card .kpi-value{
+  font-family: var(--font-mono);
+  font-size: 1.7rem;
+  display: block;
+  margin-bottom: 4px;
+}
+.kpi-card .kpi-label{
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ===========================================================
+   PANEL SECTIONS / CHARTS
+   =========================================================== */
+.panel-section{ padding: 40px 24px; }
+.panel-section.two-col{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.panel{
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 22px 18px;
+}
+.panel--wide{ width: 100%; }
+.panel-head{ margin-bottom: 18px; }
+.section-sub{
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 4px 0 0;
+}
+.chart-box{ position: relative; height: 300px; }
+.chart-box--tall{ height: 360px; }
+.chart-box--leaderboard{ height: 640px; }
+.chart-fallback{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  color: var(--muted-dim);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+
+/* ===========================================================
+   HEATMAP (departure-board style grid)
+   =========================================================== */
+.heatmap-scroll{ overflow-x: auto; }
+.heatmap{
+  display: grid;
+  grid-template-columns: 48px repeat(6, minmax(64px, 1fr));
+  gap: 3px;
+  min-width: 560px;
+}
+.hm-cell{
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 4px;
+  border-radius: 2px;
+}
+.hm-head{
+  font-family: var(--font-display);
+  color: var(--muted);
+  font-size: 0.75rem;
+  background: transparent;
+}
+.hm-rowlabel{
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: #0A0C10;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+}
+.hm-row-btn{
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hm-data{ color: #0A0C10; font-weight: 600; cursor: default; }
+
+/* ===========================================================
+   FOOTER
+   =========================================================== */
+.site-footer{
+  border-top: 1px solid var(--border);
+  padding: 32px 24px 60px;
+  margin-top: 20px;
+}
+.footer-inner p{
+  color: var(--muted-dim);
+  font-size: 0.82rem;
+  max-width: 760px;
+  margin: 0 0 8px;
+}
+.footer-credit{ color: var(--muted); }
+
+/* ===========================================================
+   RESPONSIVE
+   =========================================================== */
+@media (max-width: 860px){
+  .board-row{ grid-template-columns: repeat(2, 1fr); }
+  .board-cell{ border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+  .kpi-grid{ grid-template-columns: repeat(2, 1fr); }
+  .panel-section.two-col{ grid-template-columns: 1fr; }
+  .masthead-nav{ display: none; }
+  .chart-box--leaderboard{ height: 560px; }
+}
+@media (max-width: 480px){
+  .board-row{ grid-template-columns: 1fr; }
+  .kpi-grid{ grid-template-columns: 1fr; }
+  .hero-title{ font-size: 2.4rem; }
+}
