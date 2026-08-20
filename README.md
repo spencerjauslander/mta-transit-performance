@@ -6,6 +6,7 @@
     <li><a href="#desc">Description</a></li>
     <li><a href="#dca">Data Cleaning & Analysis</a></li>
     <li><a href="#DB">Power BI Dashboard</a></li>
+    <li><a href="#bespoke">Interactive Dashboard (Bespoke Web App)</a></li>
     <li><a href="#conclu">Conclusion</a></li>
 </ol>
 
@@ -147,6 +148,28 @@ Assists in answering three questions:
 All from a single interactive view.
 
 ![Power BI snapshot](https://github.com/spencerjauslander/mta-transit-performance/blob/main/MTA%20Project%20Images/Power%20BI%20snapshot.png)
+
+<a name="bespoke"></a>
+### Interactive Dashboard (Bespoke Web App)
+
+**[View the live dashboard](https://spencerjauslander.github.io/mta-transit-performance/)**
+
+While the Power BI dashboard above was built for depth of analysis, I wanted a second, browser-based version of this project that anyone could open with a single click — no Power BI Desktop, no file download, just a link. I built that version, "On Time, Mostly," with Claude (Anthropic's AI model) as a coding collaborator.
+
+**Purpose**
+
+The goal was to turn the same underlying data — six years of incidents, delays, and on-time performance across all 19 subway lines — into something a recruiter, hiring manager, or curious rider could explore in a browser in under a minute, without needing any transit or data background to get value out of it. It's meant to sit alongside the Power BI file and Jupyter notebook as the most accessible entry point into the project.
+
+**What it does**
+
+* A live "departure board" showing systemwide on-time performance, total incidents, total delays, and the leading cause of delay
+* Click any subway line (color-coded to match the actual MTA line colors) to filter every chart and stat on the page to that line
+* Year-over-year trend, monthly seasonality, cause-of-delay breakdown, a full 19-line leaderboard, and a line-by-year heatmap colored on a red-to-green signal scale
+* Built with plain HTML/CSS/JS and Chart.js — no build step, no server required, so it runs equally well opened locally or hosted on GitHub Pages
+
+**Working with Claude**
+
+This was my first time building a full interactive front end, and I used Claude end-to-end: scoping what the dashboard should include, writing the HTML/CSS/JS, de-duplicating and re-aggregating the messier raw incident data so the interactive filters stayed accurate, and debugging real deployment issues as they came up (a CDN dependency that silently broke the whole page when blocked, and a nested folder structure from uploading through GitHub's web UI that kept the site from finding its own files). Working through those issues was as valuable as the initial build — it meant actually troubleshooting a live GitHub Pages deployment rather than just receiving a finished file, which is closer to how this kind of work goes in practice.
 
 <a name="conclu"></a>
 ### Conclusion
